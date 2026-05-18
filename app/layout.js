@@ -1,13 +1,13 @@
 import "./globals.css";
 
-const siteUrl = "http://localhost:3000";
+const siteUrl = "https://portfolio-glodi.vercel.app";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: "Glodi M. | Portfolio",
-    template: "%s | Glodi M.",
+    default: "Glodi Mombesa | Portfolio",
+    template: "%s | Glodi Mombesa",
   },
 
   description:
@@ -15,18 +15,15 @@ export const metadata = {
 
   keywords: [
     "Glodi Mombesa",
-    "Portfolio Glodi",
+    "Portfolio Glodi Mombesa",
     "Portfolio développeur",
     "Développeur logiciel",
     "Développeur web",
     "Développeur mobile",
     "Développeur backend",
-    "Backend API",
     "React",
     "Next.js",
     "Django",
-    "Django REST Framework",
-    "JavaScript",
     "Data Science",
     "Intelligence Artificielle",
     "Université de Kinshasa",
@@ -37,18 +34,18 @@ export const metadata = {
   authors: [{ name: "Glodi Mombesa" }],
   creator: "Glodi Mombesa",
   publisher: "Glodi Mombesa",
-  applicationName: "Glodi M. Portfolio",
+  applicationName: "Glodi Mombesa Portfolio",
   category: "technology",
 
   openGraph: {
-    title: "Glodi M. | Portfolio",
+    title: "Glodi Mombesa | Portfolio",
     description:
-      "Découvrez le portfolio de Glodi Mombesa : projets web, mobile, backend et évolution vers la Data Science et l’Intelligence Artificielle.",
+      "Découvrez mon portfolio professionnel : projets web, mobile, backend, interfaces modernes et progression vers la Data Science et l’Intelligence Artificielle.",
     url: siteUrl,
-    siteName: "Glodi M. Portfolio",
+    siteName: "Glodi Mombesa Portfolio",
     images: [
       {
-        url: "/images/og-cover.jpeg",
+        url: `${siteUrl}/images/og-cover.jpeg`,
         width: 1200,
         height: 630,
         alt: "Portfolio professionnel de Glodi Mombesa",
@@ -60,10 +57,10 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Glodi M. | Portfolio",
+    title: "Glodi Mombesa | Portfolio",
     description:
-      "Portfolio professionnel de Glodi Mombesa : développement web, mobile, backend et progression vers la Data Science / IA.",
-    images: ["/images/og-cover.jpeg"],
+      "Portfolio professionnel de Glodi Mombesa : développement web, mobile, backend, projets modernes et orientation Data Science / IA.",
+    images: [`${siteUrl}/images/og-cover.jpg`],
   },
 
   icons: {
