@@ -1,13 +1,16 @@
 import "./globals.css";
 
-const siteUrl = "https://portfolio-glodi.vercel.app";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-glodi.vercel.app";
+
+const ogImage = "/images/og-cover.png";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
     default: "Glodi Mombesa | Portfolio",
-    template: "%s | Glodi Mombesa",
+    template: "%s",
   },
 
   description:
@@ -31,11 +34,21 @@ export const metadata = {
     "Développeur Kinshasa",
   ],
 
-  authors: [{ name: "Glodi Mombesa" }],
+  authors: [
+    {
+      name: "Glodi Mombesa",
+      url: siteUrl,
+    },
+  ],
+
   creator: "Glodi Mombesa",
   publisher: "Glodi Mombesa",
   applicationName: "Glodi Mombesa Portfolio",
   category: "technology",
+
+  alternates: {
+    canonical: siteUrl,
+  },
 
   openGraph: {
     title: "Glodi Mombesa | Portfolio",
@@ -45,7 +58,7 @@ export const metadata = {
     siteName: "Glodi Mombesa Portfolio",
     images: [
       {
-        url: `${siteUrl}/images/og-cover.jpeg`,
+        url: ogImage,
         width: 1200,
         height: 630,
         alt: "Portfolio professionnel de Glodi Mombesa",
@@ -60,7 +73,7 @@ export const metadata = {
     title: "Glodi Mombesa | Portfolio",
     description:
       "Portfolio professionnel de Glodi Mombesa : développement web, mobile, backend, projets modernes et orientation Data Science / IA.",
-    images: [`${siteUrl}/images/og-cover.jpg`],
+    images: [ogImage],
   },
 
   icons: {
@@ -73,6 +86,25 @@ export const metadata = {
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0B0D19",
 };
 
 export default function RootLayout({ children }) {

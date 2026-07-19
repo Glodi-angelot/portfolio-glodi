@@ -1,20 +1,22 @@
+import Link from "next/link";
 import {
   ArrowUpRight,
-  Code2,
   Mail,
   MessageCircle,
   Sparkles,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import BrandLogo from "./BrandLogo";
 
 const quickLinks = [
-  { label: "Accueil", href: "#home" },
-  { label: "À propos", href: "#about" },
-  { label: "Compétences", href: "#skills" },
-  { label: "Projets", href: "#projects" },
-  { label: "Parcours", href: "#education" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Accueil", href: "/" },
+  { label: "À propos", href: "/about" },
+  { label: "Compétences", href: "/skills" },
+  { label: "Projets", href: "/projects" },
+  { label: "Parcours", href: "/education" },
+  { label: "Services", href: "/services" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -23,18 +25,21 @@ const socialLinks = [
     value: "glodimombesa@gmail.com",
     href: "mailto:glodimombesa@gmail.com",
     icon: Mail,
+    external: false,
   },
   {
     label: "WhatsApp",
     value: "+243 890 215 503",
     href: "https://wa.me/243890215503",
     icon: MessageCircle,
+    external: true,
   },
   {
     label: "GitHub",
     value: "Glodi-angelot",
     href: "https://github.com/Glodi-angelot",
-    icon: Code2,
+    icon: FaGithub,
+    external: true,
   },
 ];
 
@@ -42,20 +47,20 @@ const tags = ["Web", "Mobile", "Backend", "Data & IA"];
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-slate-200 bg-white px-6 py-14">
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_20%,rgba(185,28,28,0.06),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(37,99,235,0.07),transparent_30%),linear-gradient(to_bottom,#ffffff,#f8fafc)]" />
+    <footer className="relative overflow-hidden border-t border-slate-200 bg-[#f5f3ee] px-4 py-14 sm:px-6">
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_20%,rgba(139,30,34,0.06),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(76,107,170,0.08),transparent_30%)]" />
 
       <div className="container-custom">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-8">
-          <div className="grid gap-10 lg:grid-cols-[1.25fr_0.7fr_1fr]">
+        <div className="rounded-[2.2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-8 lg:p-10">
+          <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr_1fr]">
+            {/* BRAND */}
             <div>
-              <BrandLogo href="#home" />
+              <BrandLogo href="/" />
 
               <p className="mt-5 max-w-md text-sm leading-7 text-slate-600">
-                Portfolio professionnel de Glodi Mombesa, étudiant en Master
-                Informatique à l’Université de Kinshasa. Je développe des
-                solutions web, mobiles et backend, avec une progression vers la
-                Data Science et l’Intelligence Artificielle.
+                Portfolio professionnel de Glodi Mombesa, étudiant en Master 1
+                Informatique à l’Université de Kinshasa, orienté développement
+                logiciel, Data Science et Intelligence Artificielle.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -75,27 +80,29 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* NAVIGATION */}
             <div>
-              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-950">
+              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#0B0D19]">
                 Navigation
               </h3>
 
               <div className="mt-5 grid gap-3">
                 {quickLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
                     className="group inline-flex w-fit items-center gap-2 text-sm font-bold text-slate-600 transition hover:text-red-700"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-slate-300 transition group-hover:bg-red-700" />
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
 
+            {/* CONTACT */}
             <div>
-              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-950">
+              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#0B0D19]">
                 Contact
               </h3>
 
@@ -107,12 +114,8 @@ export default function Footer() {
                     <a
                       key={link.label}
                       href={link.href}
-                      target={link.label === "Email" ? undefined : "_blank"}
-                      rel={
-                        link.label === "Email"
-                          ? undefined
-                          : "noopener noreferrer"
-                      }
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
                       className="group rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-1 hover:border-red-100 hover:bg-white hover:shadow-lg hover:shadow-slate-900/5"
                     >
                       <div className="flex items-center justify-between gap-4">
@@ -122,9 +125,10 @@ export default function Footer() {
                           </span>
 
                           <span>
-                            <span className="block text-sm font-black text-slate-950">
+                            <span className="block text-sm font-black text-[#0B0D19]">
                               {link.label}
                             </span>
+
                             <span className="mt-0.5 block break-all text-xs font-semibold text-slate-500">
                               {link.value}
                             </span>
@@ -140,6 +144,7 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* BOTTOM */}
           <div className="mt-10 flex flex-col gap-4 border-t border-slate-200 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
             <p>
               © {new Date().getFullYear()}{" "}
