@@ -18,7 +18,8 @@ import {
   getRelatedArticles,
 } from "@/data/articles";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-glodi.vercel.app";
 
 export async function generateStaticParams() {
   return articles.map((article) => ({
